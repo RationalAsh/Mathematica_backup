@@ -1,0 +1,1328 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 9.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[     58003,       1318]
+NotebookOptionsPosition[     56415,       1262]
+NotebookOutlinePosition[     57095,       1288]
+CellTagsIndexPosition[     57052,       1285]
+WindowTitle->Automatic Feedback Control of a Pendulum-and-Cart System - \
+Source
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Automatic Feedback Control of a Pendulum-and-Cart System", "Section",
+ CellFrame->{{0, 0}, {0, 0}},
+ ShowCellBracket->False,
+ FontColor->RGBColor[0.597406, 0, 0.0527047]],
+
+Cell[BoxData[
+ GraphicsBox[RasterBox[CompressedData["
+1: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
+FP/69esnAAAAAAAAAAAAwM74B4thROM=
+   "], {{0, 0}, {1800, 25}}, {0, 255},
+   ColorFunction->RGBColor],
+  ImageSize->{1800, 25},
+  PlotRange->{{0, 1800}, {0, 25}}]], "Section",
+ CellFrame->{{0, 0}, {0, 0}},
+ ShowCellBracket->False],
+
+Cell[BoxData[
+ RowBox[{"Manipulate", "[", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"If", "[", 
+     RowBox[{
+      RowBox[{"t", ">", "tMax"}], ",", 
+      RowBox[{"t", "=", "tMax"}]}], "]"}], ";", "\[IndentingNewLine]", 
+    RowBox[{"Quiet", "@", 
+     RowBox[{"Module", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+        "model", ",", "gains", ",", "perturbingForce", ",", "controlForce", 
+         ",", "sols", ",", "bob", ",", "pivot", ",", "f", ",", "x", ",", 
+         "\[Theta]", ",", "\[Theta]0"}], "}"}], ",", 
+       RowBox[{
+        RowBox[{"\[Theta]0", "=", 
+         RowBox[{"\[Theta]s", "+", "\[Theta]e"}]}], ";", 
+        RowBox[{
+         RowBox[{"model", "[", "t_", "]"}], "=", 
+         RowBox[{"StateSpaceModel", "[", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"L", " ", "m", " ", 
+               RowBox[{"Sin", "[", 
+                RowBox[{"\[Theta]", "[", "t", "]"}], "]"}], " ", 
+               SuperscriptBox[
+                RowBox[{
+                 SuperscriptBox["\[Theta]", "\[Prime]",
+                  MultilineFunction->None], "[", "t", "]"}], "2"]}], 
+              "\[Equal]", 
+              RowBox[{
+               RowBox[{"2", " ", 
+                RowBox[{"(", 
+                 RowBox[{"c", "+", "m"}], ")"}], " ", 
+                RowBox[{
+                 SuperscriptBox["x", "\[Prime]\[Prime]",
+                  MultilineFunction->None], "[", "t", "]"}]}], "+", 
+               RowBox[{"L", " ", "m", " ", 
+                RowBox[{"Cos", "[", 
+                 RowBox[{"\[Theta]", "[", "t", "]"}], "]"}], " ", 
+                RowBox[{
+                 SuperscriptBox["\[Theta]", "\[Prime]\[Prime]",
+                  MultilineFunction->None], "[", "t", "]"}]}], "+", 
+               RowBox[{"f", "[", "t", "]"}]}]}], ",", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"2", " ", 
+                RowBox[{"Sin", "[", 
+                 RowBox[{"\[Theta]", "[", "t", "]"}], "]"}]}], "+", 
+               RowBox[{"2", " ", 
+                RowBox[{"Cos", "[", 
+                 RowBox[{"\[Theta]", "[", "t", "]"}], "]"}], " ", 
+                RowBox[{
+                 SuperscriptBox["x", "\[Prime]\[Prime]",
+                  MultilineFunction->None], "[", "t", "]"}]}], "+", 
+               RowBox[{"L", " ", 
+                RowBox[{
+                 SuperscriptBox["\[Theta]", "\[Prime]\[Prime]",
+                  MultilineFunction->None], "[", "t", "]"}]}]}], "\[Equal]", 
+              "0"}]}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"x", "[", "t", "]"}], ",", "x0"}], "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{
+                SuperscriptBox["x", "\[Prime]",
+                 MultilineFunction->None], "[", "t", "]"}], ",", "x00"}], 
+              "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"\[Theta]", "[", "t", "]"}], ",", "\[Theta]0"}], "}"}],
+              ",", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{
+                SuperscriptBox["\[Theta]", "\[Prime]",
+                 MultilineFunction->None], "[", "t", "]"}], ",", "0"}], 
+              "}"}]}], "}"}], ",", 
+           RowBox[{"f", "[", "t", "]"}], ",", 
+           RowBox[{"{", "}"}], ",", "t"}], "]"}]}], ";", 
+        RowBox[{
+         RowBox[{"gains", "[", "t_", "]"}], "=", 
+         RowBox[{"-", 
+          RowBox[{"First", "[", 
+           RowBox[{"LQRegulatorGains", "[", 
+            RowBox[{
+             RowBox[{"N", "[", 
+              RowBox[{"model", "[", "t", "]"}], "]"}], ",", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"DiagonalMatrix", "[", 
+                RowBox[{"{", 
+                 RowBox[{"1", ",", "10", ",", "10", ",", "100"}], "}"}], 
+                "]"}], ",", 
+               RowBox[{"{", 
+                RowBox[{"{", "1", "}"}], "}"}]}], "}"}]}], "]"}], "]"}]}]}], 
+        ";", 
+        RowBox[{
+         RowBox[{"perturbingForce", "[", "t_", "]"}], "=", 
+         RowBox[{"Plus", "@@", 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"pos", "\[LeftDoubleBracket]", 
+             RowBox[{"All", ",", "2"}], "\[RightDoubleBracket]"}], " ", 
+            RowBox[{
+             RowBox[{"(", 
+              RowBox[{
+               RowBox[{"Exp", "[", 
+                RowBox[{
+                 RowBox[{"-", "bumpWidth"}], " ", 
+                 SuperscriptBox[
+                  RowBox[{"(", 
+                   RowBox[{"#1", "-", "t"}], ")"}], "2"]}], "]"}], "&"}], 
+              ")"}], "/@", 
+             RowBox[{"pos", "\[LeftDoubleBracket]", 
+              RowBox[{"All", ",", "1"}], "\[RightDoubleBracket]"}]}]}], 
+           ")"}]}]}], ";", 
+        RowBox[{
+         RowBox[{"controlForce", "[", "t_", "]"}], "=", 
+         RowBox[{
+          RowBox[{"gains", "[", "t", "]"}], ".", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"x", "[", "t", "]"}], ",", 
+            RowBox[{
+             SuperscriptBox["x", "\[Prime]",
+              MultilineFunction->None], "[", "t", "]"}], ",", 
+            RowBox[{
+             RowBox[{"\[Theta]", "[", "t", "]"}], "-", "\[Theta]s"}], ",", 
+            RowBox[{
+             SuperscriptBox["\[Theta]", "\[Prime]",
+              MultilineFunction->None], "[", "t", "]"}]}], "}"}]}]}], ";", 
+        RowBox[{
+         RowBox[{"sols", "[", "t_", "]"}], "=", 
+         RowBox[{"First", "[", 
+          RowBox[{"NDSolve", "[", 
+           RowBox[{
+            RowBox[{"Join", "[", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{
+                 RowBox[{"L", " ", "m", " ", 
+                  RowBox[{"Sin", "[", 
+                   RowBox[{"\[Theta]", "[", "t", "]"}], "]"}], " ", 
+                  SuperscriptBox[
+                   RowBox[{
+                    SuperscriptBox["\[Theta]", "\[Prime]",
+                    MultilineFunction->None], "[", "t", "]"}], "2"]}], 
+                 "\[Equal]", 
+                 RowBox[{
+                  RowBox[{"2", " ", 
+                   RowBox[{"(", 
+                    RowBox[{"c", "+", "m"}], ")"}], " ", 
+                   RowBox[{
+                    SuperscriptBox["x", "\[Prime]\[Prime]",
+                    MultilineFunction->None], "[", "t", "]"}]}], "+", 
+                  RowBox[{"L", " ", "m", " ", 
+                   RowBox[{"Cos", "[", 
+                    RowBox[{"\[Theta]", "[", "t", "]"}], "]"}], " ", 
+                   RowBox[{
+                    SuperscriptBox["\[Theta]", "\[Prime]\[Prime]",
+                    MultilineFunction->None], "[", "t", "]"}]}], "+", 
+                  RowBox[{"perturbingForce", "[", "t", "]"}], "+", 
+                  RowBox[{"controlForce", "[", "t", "]"}]}]}], ",", 
+                RowBox[{
+                 RowBox[{"L", " ", "m", " ", 
+                  RowBox[{"(", 
+                   RowBox[{
+                    RowBox[{"2", " ", 
+                    RowBox[{"Sin", "[", 
+                    RowBox[{"\[Theta]", "[", "t", "]"}], "]"}]}], "+", 
+                    RowBox[{"2", " ", 
+                    RowBox[{"Cos", "[", 
+                    RowBox[{"\[Theta]", "[", "t", "]"}], "]"}], " ", 
+                    RowBox[{
+                    SuperscriptBox["x", "\[Prime]\[Prime]",
+                    MultilineFunction->None], "[", "t", "]"}]}], "+", 
+                    RowBox[{"L", " ", 
+                    RowBox[{
+                    SuperscriptBox["\[Theta]", "\[Prime]\[Prime]",
+                    MultilineFunction->None], "[", "t", "]"}]}]}], ")"}]}], 
+                 "\[Equal]", "0"}]}], "}"}], ",", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{
+                 RowBox[{"x", "[", "0", "]"}], "\[Equal]", "x0"}], ",", 
+                RowBox[{
+                 RowBox[{
+                  SuperscriptBox["x", "\[Prime]",
+                   MultilineFunction->None], "[", "0", "]"}], "\[Equal]", 
+                 "x00"}], ",", 
+                RowBox[{
+                 RowBox[{"\[Theta]", "[", "0", "]"}], "\[Equal]", 
+                 "\[Theta]0"}], ",", 
+                RowBox[{
+                 RowBox[{
+                  SuperscriptBox["\[Theta]", "\[Prime]",
+                   MultilineFunction->None], "[", "0", "]"}], "\[Equal]", 
+                 "\[Theta]00"}]}], "}"}]}], "]"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"x", ",", "\[Theta]"}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"t", ",", "0", ",", 
+              RowBox[{"2", " ", "tMax"}]}], "}"}]}], "]"}], "]"}]}], ";", 
+        RowBox[{
+         RowBox[{"bob", "[", "t_", "]"}], "=", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"Flatten", "[", 
+            RowBox[{"L", " ", 
+             RowBox[{"Through", "[", 
+              RowBox[{
+               RowBox[{"{", 
+                RowBox[{"Sin", ",", 
+                 RowBox[{
+                  RowBox[{"-", 
+                   RowBox[{"Cos", "[", "#1", "]"}]}], "&"}]}], "}"}], "[", 
+               RowBox[{"\[Theta]", "[", "t", "]"}], "]"}], "]"}]}], "]"}], 
+           "+", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"x", "[", "t", "]"}], ",", "0"}], "}"}]}], "/.", 
+          "\[InvisibleSpace]", 
+          RowBox[{"sols", "[", "t", "]"}]}]}], ";", 
+        RowBox[{
+         RowBox[{"pivot", "[", "t_", "]"}], "=", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"x", "[", "t", "]"}], ",", "0"}], "}"}], "/.", 
+          "\[InvisibleSpace]", 
+          RowBox[{"sols", "[", "t", "]"}]}]}], ";", "\[IndentingNewLine]", 
+        RowBox[{"Column", "[", 
+         RowBox[{"{", "\[IndentingNewLine]", 
+          RowBox[{
+           RowBox[{"Plot", "[", 
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"perturbingForce", "[", "t", "]"}], ",", 
+               RowBox[{
+                RowBox[{"controlForce", "[", "t", "]"}], "/.", 
+                "\[InvisibleSpace]", 
+                RowBox[{"sols", "[", "t", "]"}]}]}], "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"t", ",", "0", ",", "tMax"}], "}"}], ",", 
+             RowBox[{"PlotStyle", "\[Rule]", 
+              RowBox[{"{", 
+               RowBox[{"Black", ",", 
+                RowBox[{"Directive", "[", 
+                 RowBox[{"Red", ",", 
+                  RowBox[{"Dashing", "[", 
+                   RowBox[{"{", 
+                    RowBox[{"0", ",", ".005"}], "}"}], "]"}]}], "]"}]}], 
+               "}"}]}], ",", 
+             RowBox[{"PlotRange", "\[Rule]", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"-", "20"}], ",", "20"}], "}"}]}], ",", 
+             RowBox[{"Filling", "\[Rule]", 
+              RowBox[{"{", 
+               RowBox[{"1", "\[Rule]", "Axis"}], "}"}]}], ",", 
+             RowBox[{"PlotLabel", "\[Rule]", 
+              RowBox[{"Row", "[", 
+               RowBox[{"{", 
+                RowBox[{"\"\<\[LongDash] perturbing force \>\"", ",", 
+                 RowBox[{"Style", "[", 
+                  RowBox[{"\"\<  ..... control force\>\"", ",", "Red"}], 
+                  "]"}]}], "}"}], "]"}]}], ",", 
+             RowBox[{"ImagePadding", "\[Rule]", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"{", 
+                 RowBox[{"25", ",", "0"}], "}"}], ",", 
+                RowBox[{"{", 
+                 RowBox[{"5", ",", "0"}], "}"}]}], "}"}]}], ",", 
+             RowBox[{"AspectRatio", "\[Rule]", ".4"}], ",", 
+             RowBox[{"ImageSize", "\[Rule]", "425"}], ",", 
+             RowBox[{"Epilog", "\[Rule]", 
+              RowBox[{"{", 
+               RowBox[{"Red", ",", 
+                RowBox[{"PointSize", "[", "Medium", "]"}], ",", 
+                RowBox[{"Point", "[", 
+                 RowBox[{"{", 
+                  RowBox[{"t", ",", "0"}], "}"}], "]"}]}], "}"}]}]}], "]"}], 
+           ",", 
+           RowBox[{"Spacer", "[", "20", "]"}], ",", "\[IndentingNewLine]", 
+           RowBox[{"ParametricPlot", "[", 
+            RowBox[{
+             RowBox[{"bob", "[", "t1", "]"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"t1", ",", "0", ",", "t"}], "}"}], ",", 
+             RowBox[{"PlotStyle", "\[Rule]", "Gray"}], ",", 
+             RowBox[{"PlotPoints", "\[Rule]", "20"}], ",", 
+             RowBox[{"PlotLabel", "\[Rule]", 
+              RowBox[{"Row", "[", 
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"Style", "[", 
+                  RowBox[{"\"\<t\>\"", ",", "Italic"}], "]"}], ",", 
+                 "\"\< = \>\"", ",", 
+                 RowBox[{"NumberForm", "[", 
+                  RowBox[{"t", ",", 
+                   RowBox[{"{", 
+                    RowBox[{"3", ",", "1"}], "}"}]}], "]"}]}], "}"}], "]"}]}],
+              ",", 
+             RowBox[{"Axes", "\[Rule]", "True"}], ",", 
+             RowBox[{"AxesStyle", "\[Rule]", "Dotted"}], ",", 
+             RowBox[{"Ticks", "\[Rule]", "None"}], ",", 
+             RowBox[{"PlotRange", "\[Rule]", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"{", 
+                 RowBox[{"5", ",", 
+                  RowBox[{"-", "5"}]}], "}"}], ",", 
+                RowBox[{"{", 
+                 RowBox[{
+                  RowBox[{"-", "2.5"}], ",", "2.5"}], "}"}]}], "}"}]}], ",", 
+             RowBox[{"PlotStyle", "\[Rule]", "Gray"}], ",", 
+             RowBox[{"AspectRatio", "\[Rule]", ".5"}], ",", 
+             RowBox[{"ImageSize", "\[Rule]", "425"}], ",", 
+             RowBox[{"Epilog", "\[Rule]", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"{", 
+                 RowBox[{"Blue", ",", 
+                  RowBox[{"Thickness", "[", 
+                   RowBox[{".02", " ", "c"}], "]"}], ",", 
+                  RowBox[{"Line", "[", 
+                   RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"pivot", "[", "t", "]"}], "-", 
+                    RowBox[{"{", 
+                    RowBox[{"0.5", ",", "0"}], "}"}]}], ",", 
+                    RowBox[{
+                    RowBox[{"pivot", "[", "t", "]"}], "+", 
+                    RowBox[{"{", 
+                    RowBox[{"0.5", ",", "0"}], "}"}]}]}], "}"}], "]"}]}], 
+                 "}"}], ",", 
+                RowBox[{"{", 
+                 RowBox[{"Red", ",", 
+                  RowBox[{"PointSize", "[", ".01", "]"}], ",", "Red", ",", 
+                  RowBox[{"Point", "[", 
+                   RowBox[{"pivot", "[", "t", "]"}], "]"}], ",", 
+                  RowBox[{"PointSize", "[", 
+                   RowBox[{".05", " ", 
+                    SuperscriptBox["m", 
+                    RowBox[{"1", "/", "3"}]]}], "]"}], ",", 
+                  RowBox[{"Point", "[", 
+                   RowBox[{"bob", "[", "t", "]"}], "]"}], ",", 
+                  RowBox[{"Line", "[", 
+                   RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"pivot", "[", "t", "]"}], ",", 
+                    RowBox[{"bob", "[", "t", "]"}]}], "}"}], "]"}]}], "}"}]}],
+                "}"}]}]}], "]"}]}], "}"}], "]"}]}]}], "]"}]}]}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"Style", "[", 
+    RowBox[{"\"\<start / pause / reset\>\"", ",", "Bold"}], "]"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"t", ",", ".0001", ",", "\"\<\>\""}], "}"}], ",", ".01", ",", 
+     "tMax", ",", "Trigger", ",", 
+     RowBox[{"DisplayAllSteps", "\[Rule]", "True"}], ",", 
+     RowBox[{"DefaultDuration", "\[Rule]", "15"}]}], "}"}], ",", 
+   "\[IndentingNewLine]", "Delimiter", ",", "\[IndentingNewLine]", 
+   RowBox[{"Style", "[", 
+    RowBox[{"\"\<pendulum parameters\>\"", ",", "Bold"}], "]"}], ",", 
+   "\[IndentingNewLine]", "\"\<length of rod: L\>\"", ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"L", ",", "1.7", ",", "\"\<\>\""}], "}"}], ",", "1", ",", "2", 
+     ",", ".1", ",", 
+     RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}], ",", 
+     RowBox[{"ImageSize", "\[Rule]", "Tiny"}]}], "}"}], ",", 
+   "\[IndentingNewLine]", "\"\<mass of bob: m\>\"", ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"m", ",", "1.5", ",", "\"\<\>\""}], "}"}], ",", "0.1", ",", "2",
+      ",", ".1", ",", 
+     RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}], ",", 
+     RowBox[{"ImageSize", "\[Rule]", "Tiny"}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   "\"\<error at start: \!\(\*SubscriptBox[\(\[Theta]\), \(e\)]\)\>\"", ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\[Theta]e", ",", 
+       RowBox[{"15", "\[Degree]"}], ",", "\"\<\>\""}], "}"}], ",", 
+     RowBox[{
+      RowBox[{"-", "45"}], "\[Degree]"}], ",", 
+     RowBox[{"45", "\[Degree]"}], ",", 
+     RowBox[{"1", "\[Degree]"}], ",", 
+     RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}], ",", 
+     RowBox[{"ImageSize", "\[Rule]", "Tiny"}]}], "}"}], ",", "Delimiter", ",",
+    "\[IndentingNewLine]", 
+   RowBox[{"Style", "[", 
+    RowBox[{"\"\<cart parameters\>\"", ",", "Bold"}], "]"}], ",", 
+   "\[IndentingNewLine]", "\"\<mass of cart: c\>\"", ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"c", ",", "1.5", ",", "\"\<\>\""}], "}"}], ",", "0.1", ",", "2",
+      ",", ".1", ",", 
+     RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}], ",", 
+     RowBox[{"ImageSize", "\[Rule]", "Tiny"}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   "\"\<start speed: \!\(\*SubscriptBox[\(x\), \(0\)]\)\>\"", ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"x00", ",", ".25", ",", "\"\<\>\""}], "}"}], ",", 
+     RowBox[{"-", "2"}], ",", "2", ",", ".1", ",", 
+     RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}], ",", 
+     RowBox[{"ImageSize", "\[Rule]", "Tiny"}]}], "}"}], ",", "Delimiter", ",",
+    "\[IndentingNewLine]", 
+   RowBox[{"Style", "[", 
+    RowBox[{"\"\<perturbing force \\\"bumps\\\"\>\"", ",", "Bold"}], "]"}], 
+   ",", "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"bumpWidth", ",", "2", ",", "\"\<\>\""}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{".5", "\[Rule]", "\"\<  wide   \>\""}], ",", 
+       RowBox[{"2", "\[Rule]", "\"\<medium\>\""}], ",", 
+       RowBox[{"5", "\[Rule]", "\"\< narrow \>\""}]}], "}"}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"Button", "[", 
+    RowBox[{"\"\<set random bumps\>\"", ",", 
+     RowBox[{
+      RowBox[{"pos", "=", 
+       RowBox[{"Transpose", "[", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"RandomSample", "[", 
+           RowBox[{
+            RowBox[{"Range", "[", 
+             RowBox[{"4", ",", "40", ",", "4"}], "]"}], ",", "5"}], "]"}], 
+          ",", 
+          RowBox[{"RandomSample", "[", 
+           RowBox[{
+            RowBox[{"Flatten", "[", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"Range", "[", 
+                RowBox[{
+                 RowBox[{"-", "15"}], ",", 
+                 RowBox[{"-", "5"}], ",", ".1"}], "]"}], ",", 
+               RowBox[{"Range", "[", 
+                RowBox[{"5", ",", "15", ",", ".1"}], "]"}]}], "}"}], "]"}], 
+            ",", "5"}], "]"}]}], "}"}], "]"}]}], ";", 
+      RowBox[{"bumpWidth", "=", 
+       RowBox[{"RandomChoice", "[", 
+        RowBox[{"{", 
+         RowBox[{".5", ",", "2", ",", "5"}], "}"}], "]"}]}]}]}], "]"}], ",", 
+   "Delimiter", ",", "\[IndentingNewLine]", 
+   RowBox[{"Style", "[", 
+    RowBox[{"\"\<feedback control setpoint\>\"", ",", "Bold"}], "]"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\[Theta]s", ",", 
+       RowBox[{"180", "\[Degree]"}], ",", "\"\<\>\""}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"180", "\[Degree]"}], "\[Rule]", 
+        "\"\<\[UpArrow] 180\[Degree]  \>\""}], ",", 
+       RowBox[{
+        RowBox[{"0", "\[Degree]"}], "\[Rule]", 
+        "\"\<\[DownArrow] 0\[Degree]\>\""}]}], "}"}], ",", "RadioButtonBar"}],
+     "}"}], ",", "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"pos", ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"4", ",", "13"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"8", ",", 
+           RowBox[{"-", "10"}]}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"16", ",", "6"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"20", ",", 
+           RowBox[{"-", "4"}]}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"30", ",", "12"}], "}"}]}], "}"}]}], "}"}], ",", 
+     "Locator"}], "}"}], ",", "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"x0", ",", "0"}], "}"}], ",", 
+     RowBox[{"ControlType", "\[Rule]", "None"}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\[Theta]s", ",", 
+       RowBox[{"180", "\[Degree]"}]}], "}"}], ",", 
+     RowBox[{"ControlType", "\[Rule]", "None"}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\[Theta]00", ",", "0"}], "}"}], ",", 
+     RowBox[{"ControlType", "\[Rule]", "None"}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"tMax", ",", "50"}], "}"}], ",", 
+     RowBox[{"ControlType", "\[Rule]", "None"}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"AutorunSequencing", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+     "1", ",", "2", ",", "3", ",", "4", ",", "5", ",", "6", ",", "7", ",", 
+      "8", ",", "9"}], "}"}]}], ",", "\[IndentingNewLine]", 
+   RowBox[{"ControlPlacement", "\[Rule]", "Left"}], ",", 
+   RowBox[{"TrackedSymbols", "\[Rule]", "True"}]}], "]"}]], "Input",
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.5064017638419747`*^9, 3.5064017976701*^9}, {
+   3.5064018386544747`*^9, 3.5064019470607247`*^9}, {3.5064019861232247`*^9, 
+   3.50640208020135*^9}, {3.5064021480607247`*^9, 3.5064021503732247`*^9}, 
+   3.5064031127951*^9, 3.5064031538107247`*^9, {3.5064032128576*^9, 
+   3.5064033249826*^9}, {3.5064033782326*^9, 3.5064034704201*^9}, {
+   3.5064040685919747`*^9, 3.5064040717326*^9}, {3.5064041775919747`*^9, 
+   3.50640421338885*^9}, {3.50640437338885*^9, 3.5064043764357247`*^9}, {
+   3.50640450313885*^9, 3.50640450638885*^9}, {3.5064047726076*^9, 
+   3.5064048413419747`*^9}, {3.5064049527482247`*^9, 3.5064049652951*^9}, {
+   3.50640503695135*^9, 3.5064050606232247`*^9}, 3.5064051733107247`*^9, {
+   3.5064052034044747`*^9, 3.5064052562326*^9}, {3.5064053086701*^9, 
+   3.5064053380607247`*^9}, {3.5064056298107247`*^9, 
+   3.5064057123107247`*^9}, {3.5064060094357247`*^9, 3.50640608763885*^9}, {
+   3.50640612145135*^9, 3.5064062389044747`*^9}, {3.5064065224044747`*^9, 
+   3.5064066071076*^9}, {3.5064072381857247`*^9, 3.50640726832635*^9}, {
+   3.5064073066544747`*^9, 3.5064073288107247`*^9}, {3.5064083774044747`*^9, 
+   3.50640842345135*^9}, {3.5064084616857247`*^9, 3.50640850632635*^9}, {
+   3.50640855238885*^9, 3.5064085639201*^9}, {3.5064086159982247`*^9, 
+   3.50640865807635*^9}, {3.5064087020451*^9, 3.5064087274982247`*^9}, {
+   3.5064088932482247`*^9, 3.5064089193732247`*^9}, {3.5064089509357247`*^9, 
+   3.5064090600607247`*^9}, {3.5064091042794747`*^9, 3.5064091157951*^9}, {
+   3.5064091462169747`*^9, 3.5064091468107247`*^9}, {3.5064101435919747`*^9, 
+   3.5064101587326*^9}, {3.50641045613885*^9, 3.5064105387794747`*^9}, {
+   3.5064110295919747`*^9, 3.5064110647169747`*^9}, {3.5064111319826*^9, 
+   3.5064112653107247`*^9}, {3.5064153514044747`*^9, 3.5064153786076*^9}, {
+   3.5064154286701*^9, 3.5064156411701*^9}, {3.5064158297326*^9, 
+   3.5064158488576*^9}, {3.50641613895135*^9, 3.5064161423107247`*^9}, 
+   3.5064162503576*^9, 3.5064163144357247`*^9, {3.50641635432635*^9, 
+   3.5064163559669747`*^9}, {3.5064163954044747`*^9, 3.5064164176544747`*^9}, 
+   3.5064164894982247`*^9, {3.5064216670607247`*^9, 3.50642169201385*^9}, {
+   3.50642172870135*^9, 3.5064218410294747`*^9}, {3.5064218787794747`*^9, 
+   3.50642197763885*^9}, {3.5064220353576*^9, 3.5064220707326*^9}, {
+   3.50642210751385*^9, 3.5064221621857247`*^9}, {3.5064222626232247`*^9, 
+   3.5064223571076*^9}, {3.5064224070919747`*^9, 3.5064224078576*^9}, {
+   3.5064224715607247`*^9, 3.50642252645135*^9}, 3.5064226708419747`*^9, {
+   3.50642276176385*^9, 3.5064227694669747`*^9}, {3.5064228324669747`*^9, 
+   3.5064230191857247`*^9}, 3.5064230848107247`*^9, {3.5064231584826*^9, 
+   3.50642317470135*^9}, {3.50642321095135*^9, 3.5064232391857247`*^9}, {
+   3.50642327376385*^9, 3.50642331963885*^9}, 3.5064233615919747`*^9, {
+   3.5064234114826*^9, 3.5064234241857247`*^9}, {3.5064234549826*^9, 
+   3.5064234632482247`*^9}, {3.5064235019044747`*^9, 3.5064235802951*^9}, {
+   3.5064256226857247`*^9, 3.50642571357635*^9}, {3.506425875138125*^9, 
+   3.506425888200625*^9}, {3.50642593359125*^9, 3.506425956450625*^9}, {
+   3.506426026685*^9, 3.5064260504975*^9}, {3.506426141981875*^9, 
+   3.50642616084125*^9}, 3.506426322638125*^9, 3.506426391575625*^9, 
+   3.506426425294375*^9, 3.506426482075625*^9, 3.506426643231875*^9, {
+   3.50642673377875*^9, 3.50642673627875*^9}, {3.50642706956*^9, 
+   3.50642717177875*^9}, {3.50642725234125*^9, 3.506427336185*^9}, 
+   3.506427367294375*^9, {3.50642743009125*^9, 3.50642743752875*^9}, 
+   3.506427472169375*^9, {3.506427509606875*^9, 3.50642754306*^9}, {
+   3.506427631888125*^9, 3.50642766802875*^9}, {3.506427708794375*^9, 
+   3.506427716450625*^9}, {3.506427755763125*^9, 3.50642780702875*^9}, 
+   3.506427884794375*^9, {3.506427922638125*^9, 3.506427943794375*^9}, {
+   3.50642797652875*^9, 3.506428008794375*^9}, {3.506428041106875*^9, 
+   3.506428083544375*^9}, {3.506428291356875*^9, 3.506428325731875*^9}, {
+   3.506428398935*^9, 3.506428426294375*^9}, {3.506428540044375*^9, 
+   3.506428595731875*^9}, {3.506430669669375*^9, 3.5064307154975*^9}, {
+   3.506432051513125*^9, 3.506432058825625*^9}, {3.506432114185*^9, 
+   3.506432118450625*^9}, {3.506432285356875*^9, 3.50643233052875*^9}, {
+   3.506439338419375*^9, 3.5064393956225*^9}, {3.506439511856875*^9, 
+   3.506439529825625*^9}, {3.506442253185*^9, 3.506442270888125*^9}, 
+   3.506486679421875*^9, {3.506487026375*^9, 3.506487036734375*^9}, {
+   3.50648724925*^9, 3.506487252953125*^9}, {3.50648736265625*^9, 
+   3.506487377765625*^9}, {3.50651083159375*^9, 3.506510853984375*^9}, {
+   3.5065109018125*^9, 3.50651091159375*^9}, {3.506510958296875*^9, 
+   3.506510996640625*^9}, {3.50651106453125*^9, 3.506511109203125*^9}, {
+   3.506511200875*^9, 3.506511204703125*^9}, {3.506511355875*^9, 
+   3.506511378859375*^9}, {3.50651146103125*^9, 3.50651146675*^9}, {
+   3.50651164621875*^9, 3.506511659328125*^9}, {3.506511696578125*^9, 
+   3.506511771859375*^9}, {3.506512775859375*^9, 3.50651278403125*^9}, {
+   3.506512851015625*^9, 3.506512860265625*^9}, {3.50651317075*^9, 
+   3.506513192125*^9}, {3.506517180375*^9, 3.506517208421875*^9}, {
+   3.506517267171875*^9, 3.506517299875*^9}, {3.506517363765625*^9, 
+   3.506517386234375*^9}, {3.50651759259375*^9, 3.506517629125*^9}, {
+   3.506517671*^9, 3.506517711375*^9}, {3.506517897890625*^9, 
+   3.506517947234375*^9}, {3.5065181790625*^9, 3.50651820625*^9}, {
+   3.506518375796875*^9, 3.506518435421875*^9}, {3.506518472609375*^9, 
+   3.50651852471875*^9}, {3.50651861690625*^9, 3.506518627625*^9}, {
+   3.5065186579375*^9, 3.50651874125*^9}, {3.506518877171875*^9, 
+   3.506518908515625*^9}, {3.5065189479375*^9, 3.506519002421875*^9}, {
+   3.506519051765625*^9, 3.5065190995*^9}, {3.506519151953125*^9, 
+   3.506519158859375*^9}, {3.50651923509375*^9, 3.506519273515625*^9}, {
+   3.50651947534375*^9, 3.506519575421875*^9}, 3.506519735734375*^9, {
+   3.506519865234375*^9, 3.506519875421875*^9}, {3.50651992671875*^9, 
+   3.506519927046875*^9}, {3.506520502421875*^9, 3.50652050415625*^9}, {
+   3.506520558078125*^9, 3.506520563703125*^9}, {3.5065205954375*^9, 
+   3.50652066371875*^9}, {3.506520739453125*^9, 3.506520773859375*^9}, {
+   3.506520833234375*^9, 3.50652090640625*^9}, {3.506521038125*^9, 
+   3.50652108859375*^9}, {3.506521164875*^9, 3.506521255484375*^9}, 
+   3.50652136659375*^9, {3.5065216295*^9, 3.506521694625*^9}, 
+   3.506521849671875*^9, 3.50652188728125*^9, {3.506521920125*^9, 
+   3.506521951828125*^9}, {3.506522045890625*^9, 3.50652205003125*^9}, {
+   3.5065220905625*^9, 3.506522106140625*^9}, {3.50652517240625*^9, 
+   3.506525175953125*^9}, {3.50652532609375*^9, 3.506525327453125*^9}, {
+   3.506525396875*^9, 3.50652540371875*^9}, {3.506525441046875*^9, 
+   3.506525444125*^9}, {3.506525483640625*^9, 3.50652553103125*^9}, {
+   3.50652573071875*^9, 3.506525732125*^9}, {3.506525783703125*^9, 
+   3.5065258090625*^9}, 3.506525974671875*^9, 3.506526412953125*^9, {
+   3.5065735955*^9, 3.50657359621875*^9}, {3.50657380734375*^9, 
+   3.506573807578125*^9}, {3.50657537640625*^9, 3.506575401921875*^9}, {
+   3.506575479171875*^9, 3.5065755109375*^9}, {3.506575549265625*^9, 
+   3.50657555478125*^9}, 3.506576342859375*^9, 3.50657646459375*^9, {
+   3.506576506421875*^9, 3.506576568828125*^9}, {3.50657664809375*^9, 
+   3.50657665046875*^9}, {3.5065766964375*^9, 3.506576700515625*^9}, {
+   3.506576895375*^9, 3.5065769799375*^9}, {3.506589327125*^9, 
+   3.506589341734375*^9}, 3.506590205171875*^9, {3.50659023634375*^9, 
+   3.506590261046875*^9}, {3.50659029771875*^9, 3.506590300640625*^9}, {
+   3.50659034765625*^9, 3.5065903615625*^9}, {3.50659039475*^9, 
+   3.506590553109375*^9}, 3.506590740125*^9, {3.506590789921875*^9, 
+   3.506590798890625*^9}, 3.50659086534375*^9, {3.50659111771875*^9, 
+   3.506591120828125*^9}, {3.506591268328125*^9, 3.506591270234375*^9}, {
+   3.5070934044375*^9, 3.5070934105*^9}, {3.507481561461505*^9, 
+   3.507481688656223*^9}, {3.507666366654578*^9, 3.507666387468524*^9}, {
+   3.50766642829282*^9, 3.50766644584121*^9}, {3.507666518190124*^9, 
+   3.50766654557454*^9}, {3.507666583376276*^9, 3.507666632222391*^9}, {
+   3.507678272141161*^9, 3.5076782735137978`*^9}, {3.5076783344855843`*^9, 
+   3.507678335264333*^9}, {3.5079129980478783`*^9, 3.507913009207912*^9}, {
+   3.5079904720945597`*^9, 3.507990475309688*^9}, {3.584589671421875*^9, 
+   3.5845896763125*^9}, 3.58458971278125*^9, {3.5845897588125*^9, 
+   3.58458978646875*^9}, {3.584589894328125*^9, 3.584589932640625*^9}, {
+   3.584590113703125*^9, 3.584590121921875*^9}, {3.58459041065625*^9, 
+   3.584590432109375*^9}, {3.584590504765625*^9, 3.584590505515625*^9}, 
+   3.584591321140625*^9, 3.584591376234375*^9, 3.584591414765625*^9, {
+   3.58459462446875*^9, 3.584594628453125*^9}, 3.584594668734375*^9},
+ CellID->188477498]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`bumpWidth$$ = 2, $CellContext`c$$ = 
+    1.5, $CellContext`L$$ = 1.7, $CellContext`m$$ = 
+    1.5, $CellContext`pos$$ = {{4, 13}, {8, -10}, {16, 6}, {20, -4}, {30, 
+    12}}, $CellContext`t$$ = 0.0001, $CellContext`tMax$$ = 
+    50, $CellContext`x0$$ = 0, $CellContext`x00$$ = 
+    0.25, $CellContext`\[Theta]00$$ = 0, $CellContext`\[Theta]e$$ = 15 
+    Degree, $CellContext`\[Theta]s$$ = 180 Degree, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{
+      Hold[
+       Style["start / pause / reset", Bold]], 
+      Manipulate`Dump`ThisIsNotAControl}, {{
+       Hold[$CellContext`t$$], 0.0001, ""}, 0.01, 
+      Dynamic[$CellContext`tMax$$]}, {
+      Hold[
+       Style["pendulum parameters", Bold]], 
+      Manipulate`Dump`ThisIsNotAControl}, {
+      Hold["length of rod: L"], Manipulate`Dump`ThisIsNotAControl}, {{
+       Hold[$CellContext`L$$], 1.7, ""}, 1, 2, 0.1}, {
+      Hold["mass of bob: m"], Manipulate`Dump`ThisIsNotAControl}, {{
+       Hold[$CellContext`m$$], 1.5, ""}, 0.1, 2, 0.1}, {
+      Hold["error at start: \!\(\*SubscriptBox[\(\[Theta]\), \(e\)]\)"], 
+      Manipulate`Dump`ThisIsNotAControl}, {{
+       Hold[$CellContext`\[Theta]e$$], 15 Degree, ""}, (-45) Degree, 45 
+      Degree, Degree}, {
+      Hold[
+       Style["cart parameters", Bold]], Manipulate`Dump`ThisIsNotAControl}, {
+      Hold["mass of cart: c"], Manipulate`Dump`ThisIsNotAControl}, {{
+       Hold[$CellContext`c$$], 1.5, ""}, 0.1, 2, 0.1}, {
+      Hold["start speed: \!\(\*SubscriptBox[\(x\), \(0\)]\)"], 
+      Manipulate`Dump`ThisIsNotAControl}, {{
+       Hold[$CellContext`x00$$], 0.25, ""}, -2, 2, 0.1}, {
+      Hold[
+       Style["perturbing force \"bumps\"", Bold]], 
+      Manipulate`Dump`ThisIsNotAControl}, {{
+       Hold[$CellContext`bumpWidth$$], 2, ""}, {
+      0.5 -> "  wide   ", 2 -> "medium", 5 -> " narrow "}}, {
+      Hold[
+       Button["set random bumps", $CellContext`pos$$ = Transpose[{
+            RandomSample[
+             Range[4, 40, 4], 5], 
+            RandomSample[
+             Flatten[{
+               Range[-15, -5, 0.1], 
+               Range[5, 15, 0.1]}], 5]}]; $CellContext`bumpWidth$$ = 
+         RandomChoice[{0.5, 2, 5}]]], Manipulate`Dump`ThisIsNotAControl}, {
+      Hold[
+       Style["feedback control setpoint", Bold]], 
+      Manipulate`Dump`ThisIsNotAControl}, {{
+       Hold[$CellContext`\[Theta]s$$], 180 Degree, ""}, {
+      180 Degree -> "\[UpArrow] 180\[Degree]  ", 0 -> 
+       "\[DownArrow] 0\[Degree]"}}, {{
+       Hold[$CellContext`pos$$], {{4, 13}, {8, -10}, {16, 6}, {20, -4}, {30, 
+       12}}}, Automatic}, {{
+       Hold[$CellContext`x0$$], 0}}, {{
+       Hold[$CellContext`\[Theta]s$$], 180 Degree}}, {{
+       Hold[$CellContext`\[Theta]00$$], 0}}, {{
+       Hold[$CellContext`tMax$$], 50}}}, Typeset`size$$ = {
+    425., {208.34375, 213.65625}}, Typeset`update$$ = 0, Typeset`initDone$$, 
+    Typeset`skipInitDone$$ = True, $CellContext`t$16407$$ = 
+    0, $CellContext`L$16408$$ = 0, $CellContext`m$16409$$ = 
+    0, $CellContext`\[Theta]e$16410$$ = 0, $CellContext`c$16411$$ = 
+    0, $CellContext`x00$16412$$ = 0, $CellContext`bumpWidth$16413$$ = 
+    False, $CellContext`\[Theta]s$16414$$ = False}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`bumpWidth$$ = 2, $CellContext`c$$ = 
+        1.5, $CellContext`L$$ = 1.7, $CellContext`m$$ = 
+        1.5, $CellContext`pos$$ = {{4, 13}, {8, -10}, {16, 6}, {20, -4}, {30, 
+         12}}, $CellContext`t$$ = 0.0001, $CellContext`tMax$$ = 
+        50, $CellContext`x0$$ = 0, $CellContext`x00$$ = 
+        0.25, $CellContext`\[Theta]00$$ = 0, $CellContext`\[Theta]e$$ = 
+        15 Degree, $CellContext`\[Theta]s$$ = 180 Degree}, 
+      "ControllerVariables" :> {
+        Hold[$CellContext`t$$, $CellContext`t$16407$$, 0], 
+        Hold[$CellContext`L$$, $CellContext`L$16408$$, 0], 
+        Hold[$CellContext`m$$, $CellContext`m$16409$$, 0], 
+        Hold[$CellContext`\[Theta]e$$, $CellContext`\[Theta]e$16410$$, 0], 
+        Hold[$CellContext`c$$, $CellContext`c$16411$$, 0], 
+        Hold[$CellContext`x00$$, $CellContext`x00$16412$$, 0], 
+        Hold[$CellContext`bumpWidth$$, $CellContext`bumpWidth$16413$$, False], 
+        Hold[$CellContext`\[Theta]s$$, $CellContext`\[Theta]s$16414$$, 
+         False]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, 
+      "Body" :> (
+       If[$CellContext`t$$ > $CellContext`tMax$$, $CellContext`t$$ = \
+$CellContext`tMax$$]; Quiet[
+         Module[{$CellContext`model$, $CellContext`gains$, \
+$CellContext`perturbingForce$, $CellContext`controlForce$, \
+$CellContext`sols$, $CellContext`bob$, $CellContext`pivot$, $CellContext`f$, \
+$CellContext`x$, $CellContext`\[Theta]$, $CellContext`\[Theta]0$}, \
+$CellContext`\[Theta]0$ = $CellContext`\[Theta]s$$ + $CellContext`\[Theta]e$$; \
+$CellContext`model$[
+             Pattern[$CellContext`t$, 
+              Blank[]]] = 
+           StateSpaceModel[{$CellContext`L$$ $CellContext`m$$ Sin[
+                 $CellContext`\[Theta]$[$CellContext`t$]] 
+               Derivative[1][$CellContext`\[Theta]$][$CellContext`t$]^2 == 
+              2 ($CellContext`c$$ + $CellContext`m$$) 
+                Derivative[
+                 2][$CellContext`x$][$CellContext`t$] + $CellContext`L$$ \
+$CellContext`m$$ Cos[
+                  $CellContext`\[Theta]$[$CellContext`t$]] 
+                Derivative[
+                 2][$CellContext`\[Theta]$][$CellContext`t$] + \
+$CellContext`f$[$CellContext`t$], 2 Sin[
+                  $CellContext`\[Theta]$[$CellContext`t$]] + 2 Cos[
+                  $CellContext`\[Theta]$[$CellContext`t$]] 
+                Derivative[
+                 2][$CellContext`x$][$CellContext`t$] + $CellContext`L$$ 
+                Derivative[2][$CellContext`\[Theta]$][$CellContext`t$] == 
+              0}, {{
+               $CellContext`x$[$CellContext`t$], $CellContext`x0$$}, {
+               Derivative[
+               1][$CellContext`x$][$CellContext`t$], $CellContext`x00$$}, {
+               $CellContext`\[Theta]$[$CellContext`t$], \
+$CellContext`\[Theta]0$}, {
+               Derivative[1][$CellContext`\[Theta]$][$CellContext`t$], 0}}, 
+             $CellContext`f$[$CellContext`t$], {}, $CellContext`t$]; \
+$CellContext`gains$[
+             Pattern[$CellContext`t$, 
+              Blank[]]] = -First[
+              LQRegulatorGains[
+               N[
+                $CellContext`model$[$CellContext`t$]], {
+                DiagonalMatrix[{1, 10, 10, 100}], {{
+                1}}}]]; $CellContext`perturbingForce$[
+             Pattern[$CellContext`t$, 
+              Blank[]]] = 
+           Apply[Plus, Part[$CellContext`pos$$, All, 2] 
+             Map[Exp[(-$CellContext`bumpWidth$$) (# - $CellContext`t$)^2]& , 
+               Part[$CellContext`pos$$, All, 1]]]; $CellContext`controlForce$[
+            
+             Pattern[$CellContext`t$, 
+              Blank[]]] = Dot[
+             $CellContext`gains$[$CellContext`t$], {
+              $CellContext`x$[$CellContext`t$], 
+              Derivative[
+              1][$CellContext`x$][$CellContext`t$], \
+$CellContext`\[Theta]$[$CellContext`t$] - $CellContext`\[Theta]s$$, 
+              Derivative[
+              1][$CellContext`\[Theta]$][$CellContext`t$]}]; \
+$CellContext`sols$[
+             Pattern[$CellContext`t$, 
+              Blank[]]] = First[
+             NDSolve[
+              Join[{$CellContext`L$$ $CellContext`m$$ Sin[
+                   $CellContext`\[Theta]$[$CellContext`t$]] 
+                 Derivative[1][$CellContext`\[Theta]$][$CellContext`t$]^2 == 
+                2 ($CellContext`c$$ + $CellContext`m$$) 
+                  Derivative[
+                   2][$CellContext`x$][$CellContext`t$] + $CellContext`L$$ \
+$CellContext`m$$ Cos[
+                    $CellContext`\[Theta]$[$CellContext`t$]] 
+                  Derivative[
+                   2][$CellContext`\[Theta]$][$CellContext`t$] + \
+$CellContext`perturbingForce$[$CellContext`t$] + \
+$CellContext`controlForce$[$CellContext`t$], $CellContext`L$$ \
+$CellContext`m$$ (2 Sin[
+                    $CellContext`\[Theta]$[$CellContext`t$]] + 2 Cos[
+                    $CellContext`\[Theta]$[$CellContext`t$]] 
+                   Derivative[
+                    2][$CellContext`x$][$CellContext`t$] + $CellContext`L$$ 
+                   Derivative[2][$CellContext`\[Theta]$][$CellContext`t$]) == 
+                0}, {$CellContext`x$[0] == $CellContext`x0$$, 
+                Derivative[1][$CellContext`x$][
+                 0] == $CellContext`x00$$, $CellContext`\[Theta]$[
+                 0] == $CellContext`\[Theta]0$, 
+                Derivative[1][$CellContext`\[Theta]$][
+                 0] == $CellContext`\[Theta]00$$}], {$CellContext`x$, \
+$CellContext`\[Theta]$}, {$CellContext`t$, 0, 
+               2 $CellContext`tMax$$}]]; $CellContext`bob$[
+             Pattern[$CellContext`t$, 
+              Blank[]]] = ReplaceAll[Flatten[$CellContext`L$$ Through[
+                 {Sin, -Cos[#]& }[
+                  $CellContext`\[Theta]$[$CellContext`t$]]]] + {
+               $CellContext`x$[$CellContext`t$], 0}, 
+             $CellContext`sols$[$CellContext`t$]]; $CellContext`pivot$[
+             Pattern[$CellContext`t$, 
+              Blank[]]] = ReplaceAll[{
+              $CellContext`x$[$CellContext`t$], 0}, 
+             $CellContext`sols$[$CellContext`t$]]; Column[{
+             Plot[{
+               $CellContext`perturbingForce$[$CellContext`t$$], 
+               ReplaceAll[
+                $CellContext`controlForce$[$CellContext`t$$], 
+                $CellContext`sols$[$CellContext`t$$]]}, {$CellContext`t$$, 
+               0, $CellContext`tMax$$}, PlotStyle -> {Black, 
+                Directive[Red, 
+                 Dashing[{0, 0.005}]]}, PlotRange -> {-20, 20}, 
+              Filling -> {1 -> Axis}, PlotLabel -> 
+              Row[{"\[LongDash] perturbing force ", 
+                 Style["  ..... control force", Red]}], 
+              ImagePadding -> {{25, 0}, {5, 0}}, AspectRatio -> 0.4, 
+              ImageSize -> 425, Epilog -> {Red, 
+                PointSize[Medium], 
+                Point[{$CellContext`t$$, 0}]}], 
+             Spacer[20], 
+             ParametricPlot[
+              $CellContext`bob$[$CellContext`t1], {$CellContext`t1, 
+               0, $CellContext`t$$}, PlotStyle -> Gray, PlotPoints -> 20, 
+              PlotLabel -> Row[{
+                 Style["t", Italic], " = ", 
+                 NumberForm[$CellContext`t$$, {3, 1}]}], Axes -> True, 
+              AxesStyle -> Dotted, Ticks -> None, 
+              PlotRange -> {{5, -5}, {-2.5, 2.5}}, PlotStyle -> Gray, 
+              AspectRatio -> 0.5, ImageSize -> 425, Epilog -> {{Blue, 
+                 Thickness[0.02 $CellContext`c$$], 
+                 
+                 Line[{$CellContext`pivot$[$CellContext`t$$] - {
+                   0.5, 0}, $CellContext`pivot$[$CellContext`t$$] + {
+                    0.5, 0}}]}, {Red, 
+                 PointSize[0.01], Red, 
+                 Point[
+                  $CellContext`pivot$[$CellContext`t$$]], 
+                 PointSize[0.05 $CellContext`m$$^(1/3)], 
+                 Point[
+                  $CellContext`bob$[$CellContext`t$$]], 
+                 Line[{
+                   $CellContext`pivot$[$CellContext`t$$], 
+                   $CellContext`bob$[$CellContext`t$$]}]}}]}]]]), 
+      "Specifications" :> {
+        Style[
+        "start / pause / reset", Bold], {{$CellContext`t$$, 0.0001, ""}, 0.01, 
+         Dynamic[$CellContext`tMax$$], ControlType -> Trigger, 
+         DisplayAllSteps -> True, DefaultDuration -> 15}, Delimiter, 
+        Style["pendulum parameters", Bold], 
+        "length of rod: L", {{$CellContext`L$$, 1.7, ""}, 1, 2, 0.1, 
+         Appearance -> "Labeled", ImageSize -> Tiny}, 
+        "mass of bob: m", {{$CellContext`m$$, 1.5, ""}, 0.1, 2, 0.1, 
+         Appearance -> "Labeled", ImageSize -> Tiny}, 
+        "error at start: \!\(\*SubscriptBox[\(\[Theta]\), \(e\)]\)", \
+{{$CellContext`\[Theta]e$$, 15 Degree, ""}, (-45) Degree, 45 Degree, Degree, 
+         Appearance -> "Labeled", ImageSize -> Tiny}, Delimiter, 
+        Style["cart parameters", Bold], 
+        "mass of cart: c", {{$CellContext`c$$, 1.5, ""}, 0.1, 2, 0.1, 
+         Appearance -> "Labeled", ImageSize -> Tiny}, 
+        "start speed: \!\(\*SubscriptBox[\(x\), \(0\)]\)", \
+{{$CellContext`x00$$, 0.25, ""}, -2, 2, 0.1, Appearance -> "Labeled", 
+         ImageSize -> Tiny}, Delimiter, 
+        Style[
+        "perturbing force \"bumps\"", 
+         Bold], {{$CellContext`bumpWidth$$, 2, ""}, {
+         0.5 -> "  wide   ", 2 -> "medium", 5 -> " narrow "}}, 
+        Button["set random bumps", $CellContext`pos$$ = Transpose[{
+             RandomSample[
+              Range[4, 40, 4], 5], 
+             RandomSample[
+              Flatten[{
+                Range[-15, -5, 0.1], 
+                Range[5, 15, 0.1]}], 5]}]; $CellContext`bumpWidth$$ = 
+          RandomChoice[{0.5, 2, 5}]], Delimiter, 
+        Style[
+        "feedback control setpoint", 
+         Bold], {{$CellContext`\[Theta]s$$, 180 Degree, ""}, {
+         180 Degree -> "\[UpArrow] 180\[Degree]  ", 0 -> 
+          "\[DownArrow] 0\[Degree]"}, ControlType -> 
+         RadioButtonBar}, {{$CellContext`pos$$, {{4, 13}, {8, -10}, {16, 6}, {
+          20, -4}, {30, 12}}}, Automatic, ControlType -> 
+         Locator}, {{$CellContext`x0$$, 0}, ControlType -> 
+         None}, {{$CellContext`\[Theta]s$$, 180 Degree}, ControlType -> 
+         None}, {{$CellContext`\[Theta]00$$, 0}, ControlType -> 
+         None}, {{$CellContext`tMax$$, 50}, ControlType -> None}}, 
+      "Options" :> {
+       AutorunSequencing -> {1, 2, 3, 4, 5, 6, 7, 8, 9}, ControlPlacement -> 
+        Left, TrackedSymbols -> True}, 
+      "DefaultOptions" :> {ControllerLinking -> True}],
+     ImageSizeCache->{628., {242., 247.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellID->219322906],
+
+Cell[CellGroupData[{
+
+Cell["CAPTION", "Section",
+ CellFrame->{{0, 0}, {1, 0}},
+ CellFrameColor->RGBColor[0.87, 0.87, 0.87],
+ FontFamily->"Helvetica",
+ FontSize->12,
+ FontWeight->"Bold",
+ FontColor->RGBColor[0.597406, 0, 0.0527047]],
+
+Cell["\<\
+This Demonstration shows the response of a simple feedback control system \
+that keeps a pendulum in a vertical upward or downward position.\
+\>", "Text"]
+}, Close]]
+}, Open  ]],
+
+Cell[TextData[{
+ "A freely swinging pendulum with rod length ",
+ Cell[BoxData[
+  FormBox["L", TraditionalForm]], "InlineMath"],
+ " and bob mass ",
+ Cell[BoxData[
+  FormBox["m", TraditionalForm]], "InlineMath"],
+ " is attached to a cart of mass ",
+ Cell[BoxData[
+  FormBox["c", TraditionalForm]], "InlineMath"],
+ ". The cart can move horizontally without friction and is subjected to two \
+forces:"
+}], "Text"],
+
+Cell["\<\
+\[Bullet] A control (feedback) force to keep the pendulum in a vertical \
+position. \
+\>", "Text"],
+
+Cell["\<\
+\[Bullet] A perturbing force that pushes the cart and pendulum sideways and \
+challenges the control system. \
+\>", "Text"],
+
+Cell["\<\
+The \"bumping\" force profile can be controlled with the five locators in the \
+upper plot or you can generate a random bumping profile with the button \"set \
+random bumps\".\
+\>", "Text"],
+
+Cell["\<\
+The pendulum can be controlled in one of two vertical equilibrium positions: \
+the stable or \"down\" position and the unstable or \"up\" position. The bob \
+position is traced to show the efficiency of the control system as indicated \
+by the different perturbing force profiles.\
+\>", "Text"],
+
+Cell[CellGroupData[{
+
+Cell["DETAILS", "Section",
+ CellFrame->{{0, 0}, {1, 0}},
+ CellFrameColor->RGBColor[0.87, 0.87, 0.87],
+ FontFamily->"Helvetica",
+ FontSize->12,
+ FontWeight->"Bold",
+ FontColor->RGBColor[0.597406, 0, 0.0527047]],
+
+Cell["\<\
+Snapshots 1\[Dash]2: the wider and the higher the bumps, the harder it is for \
+the control system to maintain a vertical pendulum\
+\>", "Text"],
+
+Cell["\<\
+Snapshot 3: notwithstanding large, successive bumps, the feedback system \
+forces the pendulum back to the vertical\
+\>", "Text"],
+
+Cell["\<\
+Run the animation to the end and play with the locators and the parameters to \
+see the possibilities (and limitations) of this control system.\
+\>", "Text"]
+}, Close]],
+
+Cell["THIS NOTEBOOK IS THE SOURCE CODE FROM", "Text",
+ CellFrame->{{0, 0}, {0, 0}},
+ CellMargins->{{48, 10}, {4, 28}},
+ CellGroupingRules->{"SectionGrouping", 25},
+ CellFrameMargins->{{48, 48}, {6, 5}},
+ CellFrameColor->RGBColor[0.87, 0.87, 0.87],
+ FontFamily->"Helvetica",
+ FontSize->10,
+ FontWeight->"Bold",
+ FontColor->RGBColor[0.597406, 0, 0.0527047]],
+
+Cell[TextData[{
+ "\[NonBreakingSpace]",
+ ButtonBox["Erik Mahieu",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://demonstrations.wolfram.com/author.html?author=Erik+Mahieu"], 
+    None},
+  ButtonNote->
+   "http://demonstrations.wolfram.com/author.html?author=Erik+Mahieu"]
+}], "Text",
+ CellMargins->{{48, Inherited}, {0, Inherited}},
+ FontFamily->"Verdana",
+ FontSize->10,
+ FontColor->GrayLevel[0.6]],
+
+Cell[TextData[{
+ "\"",
+ ButtonBox["Automatic Feedback Control of a Pendulum-and-Cart System",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://demonstrations.wolfram.com/\
+AutomaticFeedbackControlOfAPendulumAndCartSystem/"], None},
+  ButtonNote->
+   "http://demonstrations.wolfram.com/\
+AutomaticFeedbackControlOfAPendulumAndCartSystem/"],
+ "\"",
+ "\[ParagraphSeparator]\[NonBreakingSpace]",
+ ButtonBox["http://demonstrations.wolfram.com/\
+AutomaticFeedbackControlOfAPendulumAndCartSystem/",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://demonstrations.wolfram.com/\
+AutomaticFeedbackControlOfAPendulumAndCartSystem/"], None},
+  ButtonNote->
+   "http://demonstrations.wolfram.com/\
+AutomaticFeedbackControlOfAPendulumAndCartSystem/"],
+ "\[ParagraphSeparator]\[NonBreakingSpace]",
+ ButtonBox["Wolfram Demonstrations Project",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://demonstrations.wolfram.com/"], None},
+  ButtonNote->"http://demonstrations.wolfram.com/"],
+ "\[ParagraphSeparator]\[NonBreakingSpace]",
+ "Published: ",
+ "March 11, 2011"
+}], "Text",
+ CellMargins->{{48, Inherited}, {0, Inherited}},
+ FontFamily->"Verdana",
+ FontSize->10,
+ FontColor->GrayLevel[0.5]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "A full-function Wolfram ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ " system is required to edit this notebook.\n",
+ StyleBox[ButtonBox["GET WOLFRAM MATHEMATICA \[RightGuillemet]",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://www.wolfram.com/products/mathematica/"], None},
+  ButtonNote->"http://www.wolfram.com/products/mathematica/"],
+  FontFamily->"Helvetica",
+  FontWeight->"Bold",
+  FontSlant->"Italic",
+  FontColor->RGBColor[1, 0.42, 0]]
+}], "Text",
+ CellFrame->True,
+ CellMargins->{{48, 68}, {8, 28}},
+ CellFrameMargins->12,
+ CellFrameColor->RGBColor[0.87, 0.87, 0.87],
+ CellChangeTimes->{3.3750111182355957`*^9},
+ ParagraphSpacing->{1., 1.},
+ FontFamily->"Verdana",
+ FontSize->10,
+ FontColor->GrayLevel[0.411765],
+ Background->RGBColor[1, 1, 1]],
+
+Cell[TextData[{
+ "\[Copyright] ",
+ StyleBox[ButtonBox["Wolfram Demonstrations Project & Contributors",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://demonstrations.wolfram.com/"], None},
+  ButtonNote->"http://demonstrations.wolfram.com/"],
+  FontColor->GrayLevel[0.6]],
+ "\[ThickSpace]\[ThickSpace]\[ThickSpace]|\[ThickSpace]\[ThickSpace]\
+\[ThickSpace]",
+ StyleBox[ButtonBox["Terms of Use",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://demonstrations.wolfram.com/termsofuse.html"], None},
+  ButtonNote->"http://demonstrations.wolfram.com/termsofuse.html"],
+  FontColor->GrayLevel[0.6]],
+ "\[ThickSpace]\[ThickSpace]\[ThickSpace]|\[ThickSpace]\[ThickSpace]\
+\[ThickSpace]",
+ StyleBox[ButtonBox["Make a new version of this Demonstration \
+\[RightGuillemet]",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://demonstrations.wolfram.com/participate/upload.jsp?id=\
+AutomaticFeedbackControlOfAPendulumAndCartSystem"], None},
+  ButtonNote->None],
+  FontColor->GrayLevel[0.6]]
+}], "Text",
+ CellFrame->{{0, 0}, {0, 0.5}},
+ CellMargins->{{48, 10}, {20, 50}},
+ CellFrameMargins->{{6, 0}, {6, 6}},
+ CellFrameColor->GrayLevel[0.6],
+ FontFamily->"Verdana",
+ FontSize->9,
+ FontColor->GrayLevel[0.6]]
+}, Open  ]]
+},
+Editable->True,
+Saveable->False,
+ScreenStyleEnvironment->"Working",
+CellInsertionPointCell->None,
+WindowSize->{780, 650},
+WindowMargins->{{Inherited, Inherited}, {Inherited, 0}},
+WindowElements->{
+ "StatusArea", "MemoryMonitor", "MagnificationPopUp", "VerticalScrollBar", 
+  "MenuBar"},
+WindowTitle->"Automatic Feedback Control of a Pendulum-and-Cart System - \
+Source",
+DockedCells->{},
+CellContext->Notebook,
+FrontEndVersion->"9.0 for Microsoft Windows (64-bit) (January 25, 2013)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[660, 24, 176, 3, 70, "Section"],
+Cell[839, 29, 3700, 64, 70, "Section"],
+Cell[4542, 95, 30953, 669, 70, "Input",
+ CellID->188477498]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[35532, 769, 14545, 285, 70, "Output",
+ CellID->219322906],
+Cell[CellGroupData[{
+Cell[50102, 1058, 209, 6, 70, "Section"],
+Cell[50314, 1066, 164, 3, 70, "Text"]
+}, Close]]
+}, Open  ]],
+Cell[50504, 1073, 409, 12, 70, "Text"],
+Cell[50916, 1087, 108, 3, 70, "Text"],
+Cell[51027, 1092, 133, 3, 70, "Text"],
+Cell[51163, 1097, 199, 4, 70, "Text"],
+Cell[51365, 1103, 304, 5, 70, "Text"],
+Cell[CellGroupData[{
+Cell[51694, 1112, 209, 6, 70, "Section"],
+Cell[51906, 1120, 154, 3, 70, "Text"],
+Cell[52063, 1125, 139, 3, 70, "Text"],
+Cell[52205, 1130, 167, 3, 70, "Text"]
+}, Close]],
+Cell[52386, 1136, 355, 9, 70, "Text",
+ CellGroupingRules->{"SectionGrouping", 25}],
+Cell[52744, 1147, 410, 13, 70, "Text"],
+Cell[53157, 1162, 1201, 34, 70, "Text"],
+Cell[CellGroupData[{
+Cell[54383, 1200, 793, 24, 70, "Text"],
+Cell[55179, 1226, 1220, 33, 70, "Text"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
+(* NotebookSignature BR4Megq1ZZIR#ATWlxWtHUnr *)
